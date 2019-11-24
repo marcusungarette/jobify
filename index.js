@@ -5,6 +5,8 @@ const bodyParser = require('body-parser') /*FORMULARIO BODYPARSER*/
 const sqlite = require('sqlite') /* Banco de dados sqlite*/
 const dbConnection = sqlite.open('banco.sqlite', { Promise })
 
+const port = process.env.PORT || 3000
+
 app.set('view engine', 'ejs') /*como view engine vamos utilizar o ejs (npm)*/
 app.use(express.static('public')) /*se nao encontrar '/' ele busca oque tiver na pasta public */
 app.use(bodyParser.urlencoded({extended: true})) /*FORMULARIO BODYPARSER*/
@@ -107,7 +109,7 @@ const init = async() => {
 init()
 
 
-app.listen(3000, (err) => {
+app.listen(port, (err) => {
     if (err){
         console.log('Nao foi possivel iniciar o Servidor do Jobify.')
     }else{
