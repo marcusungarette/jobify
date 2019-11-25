@@ -9,6 +9,7 @@ const dbConnection = sqlite.open(path.resolve(__dirname,'banco.sqlite'), { Promi
 
 const port = process.env.PORT || 3000
 
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs') /*como view engine vamos utilizar o ejs (npm)*/
 app.use(express.static('public')) /*se nao encontrar '/' ele busca oque tiver na pasta public */
 app.use(bodyParser.urlencoded({extended: true})) /*FORMULARIO BODYPARSER*/
